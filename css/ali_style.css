@@ -500,7 +500,7 @@ section > .content {
 #skills > .content {
 	flex-direction: column;
 	align-items: center;
-	height: auto;
+	height: 100vh;
 }
 
 #skills > .content h1 {
