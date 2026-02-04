@@ -356,6 +356,45 @@ section > .content {
 	background-color: var(--color-9);
 }
 
+#publications > .content {
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+#publications > .content h1 {
+    margin-top: 90px;
+    color: var(--color-3);
+    font-size: 2.5rem;
+    font-weight: 500;
+    position: relative;
+}
+
+#publications > .content h1::after {
+    position: absolute;
+    content: "";
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background-color: var(--color-6);
+}
+
+.pub-placeholder {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pub-placeholder p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--color-4);
+}
+
+
 #projects > .content {
 	flex-direction: column;
 	align-items: center;
