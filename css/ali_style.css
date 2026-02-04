@@ -539,7 +539,8 @@ section > .content {
 #skills > .content {
 	flex-direction: column;
 	align-items: center;
-	height: 100vh;
+	min-height: 100vh;
+    height: auto;
 }
 
 #skills > .content h1 {
