@@ -528,7 +528,7 @@
 
 							<div class="item">
 								<h3>
-									<i class="devicon-pandas-plain colored"></i>
+									<i class="devicon-pandas-plain" style="color:#6ea8ff"></i>
 									<span>Pandas</span>
 								</h3>
 								<div class="progress-dots">
@@ -846,7 +846,7 @@
 				<div class="footer">
 					<img src="images/footer-bg.png" alt="">
 					<h2>ali-aman.ca</h2>
-					<p class="p-1">© 2025 Ali Aman. All rights reserved.</p>
+					<p class="p-1">© <span id="copyright-year">2024</span> Ali Aman. All rights reserved.</p>
 					<p class="p-2">Font used: 'Quicksand' from Google Fonts. Icons provided by Font Awesome and Devicon.</p>
 				</div>
 			</div>
@@ -854,6 +854,12 @@
 	</div>
 	<script src="js/navigation.js"></script>
 	<script src="js/animation.js"></script>
+	<script>
+		const startYear = 2024;
+		const currentYear = new Date().getFullYear();
+		document.getElementById("copyright-year").textContent =
+			currentYear > startYear ? `${startYear}-${currentYear}` : `${startYear}`;
+	</script>
 </body>
 
 </html>
