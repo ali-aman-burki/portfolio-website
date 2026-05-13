@@ -461,6 +461,12 @@ section > .content {
     padding: 4px 8px;
     border-radius: 4px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+#publications > .content > .pub-list > .pub-card > .pub-footer > .pub-venue:hover {
+    color: var(--color-5);
 }
 
 #publications > .content > .pub-list > .pub-card > .pub-footer > .pub-links {
