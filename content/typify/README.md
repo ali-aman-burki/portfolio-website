@@ -123,7 +123,7 @@ pip install typify-cli
 
 The demo video below walks through this setup and runs Typify on the example project, and also demonstrates the VS Code Extension.
 
-[![Watch the demo](https://img.youtube.com/vi/UklgSERoMjc/0.jpg)](https://www.youtube.com/watch?v=UklgSERoMjc)
+[![Watch the demo](https://img.youtube.com/vi/ANkhv1dci3s/0.jpg)](https://youtu.be/ANkhv1dci3s)
 
 ---
 
