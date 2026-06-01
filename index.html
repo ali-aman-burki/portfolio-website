@@ -909,6 +909,7 @@
 			const page = document.getElementById('typify-page');
 			const sections = document.querySelector('.sections');
 			typifySavedScrollY = window.scrollY;
+			document.documentElement.style.overflowY = 'scroll';
 			sections.style.display = 'none';
 			page.style.display = 'block';
 			document.body.classList.add('typify-open');
@@ -922,6 +923,7 @@
 		function hideTypifyPage(targetHash) {
 			const page = document.getElementById('typify-page');
 			const sections = document.querySelector('.sections');
+			document.documentElement.style.overflowY = '';
 			page.style.display = 'none';
 			sections.style.display = '';
 			document.body.classList.remove('typify-open');
