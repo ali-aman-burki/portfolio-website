@@ -673,10 +673,16 @@ body.typify-open .navbar > .logo > .last {
 }
 
 #typify-page .markdown-body {
-	max-width: 860px;
+	max-width: 960px;
 	margin: 0 auto;
 	padding: 50px 20px 80px;
 	background-color: transparent;
+	font-family: "Quicksand", sans-serif;
+}
+
+#typify-page .markdown-body code,
+#typify-page .markdown-body pre {
+	font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 }
 
 #skills > .content {
