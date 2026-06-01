@@ -680,6 +680,10 @@ body.typify-open .navbar > .logo > .last {
 	font-family: "Quicksand", sans-serif;
 }
 
+#typify-page .markdown-body a {
+	color: #85b8ff;
+}
+
 #typify-page .markdown-body code,
 #typify-page .markdown-body pre {
 	font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;

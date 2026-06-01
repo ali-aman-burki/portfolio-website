@@ -167,7 +167,7 @@
 						<div class="footer">
 							<a class="tag">Python</a>
 						</div>
-						<a href="#projects/typify" class="r_link">
+						<a href="/typify" class="r_link">
 							<i class="fa-solid fa-book-open"></i>
 						</a>
 						<a href="https://github.com/ali-aman-burki/typify" class="e_link" target="_blank" rel="noopener noreferrer">
@@ -905,32 +905,64 @@
 			}
 		}
 
-		function handleTypifyHash() {
+		function showTypifyPage() {
 			const page = document.getElementById('typify-page');
 			const sections = document.querySelector('.sections');
-			if (window.location.hash === '#projects/typify') {
-				typifySavedScrollY = window.scrollY;
-				sections.style.display = 'none';
-				page.style.display = 'block';
-				document.body.classList.add('typify-open');
-				window.scrollTo({ top: 0, behavior: 'instant' });
-				document.querySelectorAll('.navbar > .links a').forEach(l => l.classList.remove('active'));
-				const projLink = document.querySelector('.navbar > .links a[href="#projects"]');
-				if (projLink) projLink.classList.add('active');
-				loadTypifyContent();
-			} else {
-				page.style.display = 'none';
-				sections.style.display = '';
-				document.body.classList.remove('typify-open');
-				const hash = window.location.hash;
-				const targetId = hash && !hash.includes('/') ? hash.slice(1) : null;
-				const target = targetId ? document.getElementById(targetId) : null;
-				window.scrollTo({ top: target ? target.offsetTop : typifySavedScrollY, behavior: 'smooth' });
-				window.dispatchEvent(new Event('scroll'));
-			}
+			typifySavedScrollY = window.scrollY;
+			sections.style.display = 'none';
+			page.style.display = 'block';
+			document.body.classList.add('typify-open');
+			window.scrollTo({ top: 0, behavior: 'instant' });
+			document.querySelectorAll('.navbar > .links a').forEach(l => l.classList.remove('active'));
+			const projLink = document.querySelector('.navbar > .links a[href="#projects"]');
+			if (projLink) projLink.classList.add('active');
+			loadTypifyContent();
 		}
-		window.addEventListener('hashchange', handleTypifyHash);
-		window.addEventListener('load', handleTypifyHash);
+
+		function hideTypifyPage(targetHash) {
+			const page = document.getElementById('typify-page');
+			const sections = document.querySelector('.sections');
+			page.style.display = 'none';
+			sections.style.display = '';
+			document.body.classList.remove('typify-open');
+			const targetId = targetHash && !targetHash.includes('/') ? targetHash.slice(1) : null;
+			const target = targetId ? document.getElementById(targetId) : null;
+			window.scrollTo({ top: target ? target.offsetTop : typifySavedScrollY, behavior: 'smooth' });
+			window.dispatchEvent(new Event('scroll'));
+		}
+
+		document.querySelector('.r_link').addEventListener('click', function(e) {
+			e.preventDefault();
+			history.pushState({ typify: true }, '', '/typify');
+			showTypifyPage();
+		});
+
+		document.querySelectorAll('.navbar > .links a, .sidebar > .links a').forEach(function(link) {
+			link.addEventListener('click', function(e) {
+				if (document.getElementById('typify-page').style.display === 'block') {
+					e.preventDefault();
+					const hash = this.getAttribute('href');
+					history.pushState(null, '', '/' + hash);
+					hideTypifyPage(hash);
+				}
+			});
+		});
+
+		window.addEventListener('popstate', function() {
+			if (window.location.pathname === '/typify') {
+				showTypifyPage();
+			} else if (document.getElementById('typify-page').style.display === 'block') {
+				hideTypifyPage(window.location.hash);
+			}
+		});
+
+		window.addEventListener('load', function() {
+			if (window.location.pathname === '/typify' || sessionStorage.getItem('typify_redirect')) {
+				sessionStorage.removeItem('typify_redirect');
+				history.replaceState({ typify: true }, '', '/typify');
+				showTypifyPage();
+			}
+		});
 	</script>
 	<script>
 		const startYear = 2024;
