@@ -6,7 +6,7 @@
 
 The project consists of two parts:
 
-- **typify-cli** - the standalone inference engine and CLI powering the extension
+- **typify-cli** - the standalone inference engine and command-line interface (CLI) powering the extension
 - **Typify VS Code Extension** - interactive editor integration with live inferred types, hover cards, and one-click annotation
 
 ---
@@ -423,9 +423,9 @@ Available from the Command Palette:
 
 # Links
 
-- [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=amanh.typify)
+- [Typify CLI Repository](https://github.com/ali-aman-burki/typify-cli)
 - [VS Code Extension Repository](https://github.com/for-loop9/typify-vscode)
-- [Typify Backend Repository](https://github.com/ali-aman-burki/typify-cli)
+- [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=amanh.typify)
 - [Type4Py](https://github.com/saltudelft/type4py)
 - [ICPC 2026 Paper](https://doi.org/10.1145/3794763.3794825)
 
