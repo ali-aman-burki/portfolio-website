@@ -908,9 +908,11 @@
 		function showTypifyPage() {
 			const page = document.getElementById('typify-page');
 			const sections = document.querySelector('.sections');
+			const header = document.querySelector('.header');
 			typifySavedScrollY = window.scrollY;
 			sections.style.display = 'none';
 			page.style.display = 'block';
+			if (header) header.style.display = 'none';
 			document.body.classList.add('typify-open');
 			window.scrollTo({ top: 0, behavior: 'instant' });
 			document.querySelectorAll('.navbar > .links a').forEach(l => l.classList.remove('active'));
@@ -922,8 +924,10 @@
 		function hideTypifyPage(targetHash) {
 			const page = document.getElementById('typify-page');
 			const sections = document.querySelector('.sections');
+			const header = document.querySelector('.header');
 			page.style.display = 'none';
 			sections.style.display = '';
+			if (header) header.style.display = '';
 			document.body.classList.remove('typify-open');
 			const targetId = targetHash && !targetHash.includes('/') ? targetHash.slice(1) : null;
 			const target = targetId ? document.getElementById(targetId) : null;
