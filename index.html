@@ -38,6 +38,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 	<link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 	<link rel="stylesheet" href="css/ali_style.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.5.1/github-markdown-dark.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 	<meta name="description" content="Software Researcher passionate about solving real-world problems. Explore my portfolio featuring projects and skills I've developed over the years.">
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://ali-aman.ca/" />
@@ -161,10 +163,13 @@
 							<h2 class="project-name">Typify</h2>
 							<h2 class="project-date">2025</h2>
 						</div>
-						<p>A Python type binding tool currently in development. It performs static analysis to infer types of Python variables and functions.</p>
+						<p>A Python type inference tool. It performs static analysis to infer types of Python variables and functions.</p>
 						<div class="footer">
 							<a class="tag">Python</a>
 						</div>
+						<a href="#projects/typify" class="r_link">
+							<i class="fa-solid fa-book-open"></i>
+						</a>
 						<a href="https://github.com/ali-aman-burki/typify" class="e_link" target="_blank" rel="noopener noreferrer">
 							<i class="fa-solid fa-up-right-from-square"></i>
 						</a>
@@ -873,8 +878,60 @@
 			</div>
 		</section>
 	</div>
+	<div id="typify-page">
+		<div id="typify-content" class="markdown-body"></div>
+	</div>
 	<script src="js/navigation.js"></script>
 	<script src="js/animation.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<script>
+		let typifySavedScrollY = 0;
+
+		async function loadTypifyContent() {
+			const container = document.getElementById('typify-content');
+			if (container.dataset.loaded) return;
+			try {
+				const response = await fetch('content/typify/README.md');
+				const text = await response.text();
+				const processed = text
+					.replace(/\]\(screenshots\//g, '](content/typify/screenshots/')
+					.replace(/src="screenshots\//g, 'src="content/typify/screenshots/');
+				container.innerHTML = marked.parse(processed);
+				container.querySelectorAll('pre code').forEach(el => hljs.highlightElement(el));
+				container.dataset.loaded = 'true';
+			} catch (e) {
+				container.innerHTML = '<p style="color:var(--color-4);padding:40px">Failed to load content.</p>';
+			}
+		}
+
+		function handleTypifyHash() {
+			const page = document.getElementById('typify-page');
+			const sections = document.querySelector('.sections');
+			if (window.location.hash === '#projects/typify') {
+				typifySavedScrollY = window.scrollY;
+				sections.style.display = 'none';
+				page.style.display = 'block';
+				document.body.classList.add('typify-open');
+				window.scrollTo({ top: 0, behavior: 'instant' });
+				document.querySelectorAll('.navbar > .links a').forEach(l => l.classList.remove('active'));
+				const projLink = document.querySelector('.navbar > .links a[href="#projects"]');
+				if (projLink) projLink.classList.add('active');
+				loadTypifyContent();
+			} else {
+				page.style.display = 'none';
+				sections.style.display = '';
+				document.body.classList.remove('typify-open');
+				const hash = window.location.hash;
+				const targetId = hash && !hash.includes('/') ? hash.slice(1) : null;
+				const target = targetId ? document.getElementById(targetId) : null;
+				window.scrollTo({ top: target ? target.offsetTop : typifySavedScrollY, behavior: 'smooth' });
+				window.dispatchEvent(new Event('scroll'));
+			}
+		}
+		window.addEventListener('hashchange', handleTypifyHash);
+		window.addEventListener('load', handleTypifyHash);
+	</script>
 	<script>
 		const startYear = 2024;
 		const currentYear = new Date().getFullYear();

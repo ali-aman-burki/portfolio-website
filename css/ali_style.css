@@ -42,6 +42,7 @@ body {
 
 .header {
 	position: fixed;
+	top: 0;
 	width: 100%;
 	height: 60px;
 	display: flex;
@@ -634,6 +635,48 @@ section > .content {
 #projects > .content > .grid > .card > .e_link:hover {
 	color: var(--color-3);
 	transform: scale(1.1);
+}
+
+#projects > .content > .grid > .card > .r_link {
+	font-size: 1.6rem;
+	color: var(--color-4);
+	padding: 0;
+	background-color: transparent;
+	position: absolute;
+	bottom: 20px;
+	right: 56px;
+	transition: transform 0.2s ease, color 0.2s ease, opacity var(--animate-in) ease;
+	text-decoration: none;
+}
+
+#projects > .content > .grid > .card > .r_link:hover {
+	color: var(--color-3);
+	transform: scale(1.1);
+}
+
+#typify-page {
+	position: relative;
+	margin-top: 60px;
+	min-height: calc(100vh - 60px);
+	background-color: var(--color-1);
+	display: none;
+}
+
+body.typify-open .header {
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	background-color: var(--color-1);
+}
+
+body.typify-open .navbar > .logo > .last {
+	color: var(--color-6);
+	transform: translateX(5px);
+}
+
+#typify-page .markdown-body {
+	max-width: 860px;
+	margin: 0 auto;
+	padding: 50px 20px 80px;
+	background-color: transparent;
 }
 
 #skills > .content {
