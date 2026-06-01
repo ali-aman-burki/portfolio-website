@@ -657,7 +657,7 @@ section > .content {
 #typify-page {
 	position: relative;
 	margin-top: 60px;
-	min-height: calc(100vh - 60px);
+	min-height: 100vh;
 	background-color: var(--color-1);
 	display: none;
 }
