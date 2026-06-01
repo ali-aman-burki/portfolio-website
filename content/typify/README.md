@@ -106,6 +106,25 @@ pip install typify-cli
 
 The following packages are installed automatically by the above command: `tantivy`, `rich`, `gdown`, and `requests`.
 
+### Example Project
+
+A sample Python project is available for download to experiment with Typify right away.
+
+[Download example project](/content/typify/library-project.zip)
+
+Extract the archive, navigate to the project root, set up a Python virtual environment, install the project dependencies, then install `typify-cli`:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate       # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+pip install typify-cli
+```
+
+The demo video below walks through this setup and runs Typify on the example project, and also demonstrates the VS Code Extension.
+
+[![Watch the demo](https://img.youtube.com/vi/UklgSERoMjc/0.jpg)](https://www.youtube.com/watch?v=UklgSERoMjc)
+
 ---
 
 ## How Typify Works
