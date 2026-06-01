@@ -116,6 +116,16 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }
 });
 
+function toggleTheme() {
+    const icon = document.querySelector('#theme-toggle i');
+    if (icon.classList.contains('fa-moon')) {
+        icon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+        icon.classList.replace('fa-sun', 'fa-moon');
+    }
+    document.documentElement.classList.toggle('light-mode');
+}
+
 function getScrollbarWidth() {
     const outer = document.createElement('div');
     
