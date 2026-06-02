@@ -83,7 +83,7 @@ Key findings:
 | Pyright | ✕ | ✕ | ✓ | ✓ | ✕ |
 | Pyre | ✕ | ✕ | ✕ | ✓ | ✕ |
 | Type4Py | ✓ | ✕ | ✕ | ✕ | ✓ |
-| HiTyper | ✓ | ✕ | ✕ | ✕ | ✓ |
+| HiTyper | ✓ | ✕ | ✕ | ✓ | ✓ |
 | **Typify** | **✓** | **✓** | **✓** | **✓** | **✓** |
 
 As shown above, Typify stands out because it combines analysis of the entire project with predictable execution, while also supporting optional ML features. Unlike many existing tools, it does not focus on just one strength at the expense of others.
